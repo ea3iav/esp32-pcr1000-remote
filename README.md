@@ -2,44 +2,7 @@
 ESP32-based touchscreen controller for the ICOM PCR1000 with full frequency control, S-meter, and rotary encoder.
 # 📡 ESP32 + ICOM PCR1000 Controller
 
----
 
-## ⚠️ TFT_eSPI Configuration (IMPORTANT)
-
-After installing **TFT_eSPI**, you must edit:
-
-```
-Documents/Arduino/libraries/TFT_eSPI/User_Setup.h
-```
-
-### ✔ Recommended method (clean and safe)
-
-👉 **Delete or comment EVERYTHING inside `User_Setup.h`**
-👉 Then paste ONLY this:
-
-```cpp
-#define ILI9341_DRIVER
-
-#define TFT_MOSI 23
-#define TFT_MISO 19
-#define TFT_SCLK 18
-#define TFT_CS   15
-#define TFT_DC   2
-#define TFT_RST  4
-
-#define TOUCH_CS 5
-
-#define SPI_FREQUENCY 40000000
-#define SPI_TOUCH_FREQUENCY 2500000
-```
-
-### ❗ Notes
-
-* Restart Arduino IDE after saving
-* Only one setup must be active
-* This project uses **HSPI bus (GPIO23/19/18)**
-
----
 
 ## 🧰 Hardware Components
 
@@ -169,7 +132,44 @@ GND    ───── GND
 * Encoder + analog control
 * Real RS232 communication with PCR1000
 * Stable and correct hardware mapping
+---
 
+## ⚠️ TFT_eSPI Configuration (IMPORTANT)
+
+After installing **TFT_eSPI**, you must edit:
+
+```
+Documents/Arduino/libraries/TFT_eSPI/User_Setup.h
+```
+
+### ✔ Recommended method (clean and safe)
+
+👉 **Delete or comment EVERYTHING inside `User_Setup.h`**
+👉 Then paste ONLY this:
+
+```cpp
+#define ILI9341_DRIVER
+
+#define TFT_MOSI 23
+#define TFT_MISO 19
+#define TFT_SCLK 18
+#define TFT_CS   15
+#define TFT_DC   2
+#define TFT_RST  4
+
+#define TOUCH_CS 5
+
+#define SPI_FREQUENCY 40000000
+#define SPI_TOUCH_FREQUENCY 2500000
+```
+
+### ❗ Notes
+
+* Restart Arduino IDE after saving
+* Only one setup must be active
+* This project uses **HSPI bus (GPIO23/19/18)**
+* when using the remote controller try to ignite the radio before you turn the ESP on. I have routed power trhiugh the remote interface so both devices turn on at the same time (I use a buck converter to adjust voltage to 5V from 12V)
+---
 ---
 ## 👉 3d Enclosure:
 Custom 3d case to house potentionmeter, encoder connectors and wires 
