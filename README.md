@@ -71,7 +71,7 @@ ESP32 3V3 / 5V     ───── MAX3232 VCC
 MAX3232 TX (RS232) ───── DB9 PIN 2 (PCR RX)
 MAX3232 RX (RS232) ───── DB9 PIN 3 (PCR TX)
 MAX3232 GND        ───── DB9 PIN 5 (GND)
-         Put a jumper on DB9 pins 6 and 7
+         Put a jumper on DB9 pins 7 and 8
 ```
 
 ---
